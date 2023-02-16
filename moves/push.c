@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 12:25:31 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/16 19:15:19 by rmorais          ###   ########.fr       */
+/*   Created: 2023/02/16 15:54:22 by rmorais           #+#    #+#             */
+/*   Updated: 2023/02/16 16:01:31 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap"
 
-int main(int ac, char **av)
+static void	ft_push(t_stack *stack, t_stack *dest)
 {
-	t_stack	*stack_a;
-	t_stack *stack_b; 
+	int temp;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	if (ft_guccinput(ac, av) == 1)
-	{
-		write(2, "error\n", 7);
-		return (0);
-	}
-	ft_getargs(ac, av, &stack_a);
-	ft_printlst(stack_a);
-	ft_printlst(stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	ft_printlst(stack_a);
-	ft_printlst(stack_b);
-	return (0);
+	temp = stack->content;
+	stack->content = dest;
+	dest = temp;
+	stack = dest;
+}
+
+void pa(t_stack **stack_a)
+{
+	ft_push(*stack_a);
 }

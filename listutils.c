@@ -6,7 +6,7 @@
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:58:38 by rodas             #+#    #+#             */
-/*   Updated: 2023/02/16 11:58:22 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/02/16 18:10:29 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void ft_printlst(t_stack *lst)
 		printf("[%d] ", lst->content);
 		lst = lst->next;
 	}
+	printf("\n");
 	lst = temp;
 }
 /* 

@@ -6,29 +6,25 @@
 #    By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 12:24:23 by rmorais           #+#    #+#              #
-#    Updated: 2023/02/16 13:17:04 by rmorais          ###   ########.fr        #
+#    Updated: 2023/02/16 14:50:35 by rmorais          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = args errors_utils ft_atol listutils main \
-
-OBJS =	$(SRCS:=.o)
-
 CC = gcc
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
-all: $(NAME)
+SRC_NAME = args.c errors_utils.c ft_atol.c listutils.c  \
 
-SRC = $(addprefix $(SRC_NAME))
 
-$(NAME): $(SRCS:=.o)
-				@ar rcs $(NAME) $(SRCS:=.o)
-bonus:	$(SRCS:=.o)	
-				@ar rcs $(NAME) $(SRCS:=.o)
+SRC = $(addprefix $(SRC_NAME)) main.c
+
+$(NAME): $(SRC)
+				$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 clean:
-				$(RM) $(OBJS)
+				$(RM) $(SRC:=.o)
 
 fclean:			clean
 				$(RM) $(NAME)

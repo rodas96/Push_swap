@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 12:25:31 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/16 19:15:19 by rmorais          ###   ########.fr       */
+/*   Created: 2023/02/16 13:10:08 by rmorais           #+#    #+#             */
+/*   Updated: 2023/02/16 15:54:16 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+static void	ft_swap(t_stack *stack)
 {
-	t_stack	*stack_a;
-	t_stack *stack_b; 
+	int	temp;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	if (ft_guccinput(ac, av) == 1)
-	{
-		write(2, "error\n", 7);
-		return (0);
-	}
-	ft_getargs(ac, av, &stack_a);
-	ft_printlst(stack_a);
-	ft_printlst(stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	ft_printlst(stack_a);
-	ft_printlst(stack_b);
-	return (0);
+	if (!stack || stack->next == NULL)
+		return ;
+	temp = stack->content;
+	stack->content = stack->next->content;
+	stack->next->content = temp;
+}
+
+void	sa(t_stack **stack_a)
+{
+	ft_swap(*stack_a);
+}
+
+void	sb(t_stack **stack_b)
+{
+	ft_swap(*swap_b);
+}
+
+void	ss(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_swap(*stack_a);
+	ft_swap(*swap_b);
 }
