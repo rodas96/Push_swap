@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   sort_3_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 13:10:08 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/16 15:54:16 by rmorais          ###   ########.fr       */
+/*   Created: 2023/02/17 15:42:06 by rmorais           #+#    #+#             */
+/*   Updated: 2023/02/17 20:31:17 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_swap(t_stack *stack)
-{
-	int	temp;
+void	sort_3(t_stack **stack_a)
+{	
+	int first;
+	int second;
+	int	third;
 
-	if (!stack || stack->next == NULL)
-		return ;
-	temp = stack->content;
-	stack->content = stack->next->content;
-	stack->next->content = temp;
-}
-
-void	sa(t_stack **stack_a)
-{
-	ft_swap(*stack_a);
-}
-
-void	sb(t_stack **stack_b)
-{
-	ft_swap(*swap_b);
-}
-
-void	ss(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_swap(*stack_a);
-	ft_swap(*swap_b);
+	first = (*stack_a)->content;
+	second = (*stack_a)->next->content;
+	third = (*stack_a)->next->next->content;
+	printf ("%d %d %d\n",first, second, third);
+	if (first > second && second > third)
+	{
+		sa(stack_a);
+		rra(stack_a);
+	}
+	if (first > second && second < third)
+		sa(stack_a);
+	if (first > second && second < third)
+		ra(stack_a);
 }
