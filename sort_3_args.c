@@ -6,11 +6,23 @@
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:42:06 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/17 20:31:17 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/02/22 12:53:20 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void do_sa_rra(t_stack **stack_a)
+{
+	sa(stack_a);
+	rra(stack_a);
+}
+
+static void do_sa_ra(t_stack **stack_a)
+{
+	sa(stack_a);
+	ra(stack_a);
+}
 
 void	sort_3(t_stack **stack_a)
 {	
@@ -21,14 +33,14 @@ void	sort_3(t_stack **stack_a)
 	first = (*stack_a)->content;
 	second = (*stack_a)->next->content;
 	third = (*stack_a)->next->next->content;
-	printf ("%d %d %d\n",first, second, third);
-	if (first > second && second > third)
-	{
+	if (first < third && second < third)
 		sa(stack_a);
-		rra(stack_a);
-	}
-	if (first > second && second < third)
-		sa(stack_a);
-	if (first > second && second < third)
+	else if (first > second && second > third)
+		do_sa_rra(stack_a);
+	else if (first > third && second < third)
 		ra(stack_a);
+	else if (first < second && second > third && first < third)
+		do_sa_ra(stack_a);
+	else if (first < second && first > third)
+		rra(stack_a);
 }
