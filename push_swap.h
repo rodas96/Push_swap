@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rodas <rodas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:53:44 by rodas             #+#    #+#             */
-/*   Updated: 2023/02/22 20:20:14 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/02/23 17:48:57 by rodas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_stack
 {
 	int				content;
-	int				lowest;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -49,11 +48,12 @@ void rrr(t_stack **stack_a, t_stack **stack_b);
 void		ft_getargs(int ac, char **av, t_stack **stack);
 
 //find stuff
-int	find_lowest(t_stack **stack);
+int	find_lowestindex(t_stack **stack);
 
 //sorting
 int	is_sorted(t_stack **stack); //returns 1 if sorted Ou !is_sorted
 void	sort_3(t_stack **stack_a);
+void	sort_4(t_stack **stack_a, t_stack **stack_b);
 void 	sort_5(t_stack **stack_a, t_stack **stack_b);
 void	sort_everythingplz(int ac, t_stack **stack_a, t_stack **stack_b);
 //lst utils, create new element of stack, get last add one to the back
@@ -61,5 +61,6 @@ t_stack		*ft_lstnew(int content);
 t_stack		*ft_lstlast(t_stack *lst);
 void		ft_addback(t_stack **lst, t_stack *new);
 void		ft_printlst(t_stack *lst);
+int 		ft_lstsize(t_stack *stack);
 
 #endif

@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   listutils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rodas <rodas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:58:38 by rodas             #+#    #+#             */
-/*   Updated: 2023/02/16 18:10:29 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:28:24 by rodas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int ft_lstsize(t_stack *stack)
+{
+	int	count;
+
+	count = 0;
+	if (!stack)
+		return (0);
+	while (stack != NULL)
+	{
+		stack = stack->next;
+		count++;
+	}
+	return (count);
+}
+
 
 t_stack	*ft_lstnew(int content)
 {

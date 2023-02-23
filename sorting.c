@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rodas <rodas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:14:19 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/22 18:31:41 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/02/23 17:48:47 by rodas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sort_everythingplz(int ac, t_stack **stack_a, t_stack **stack_b)
 	else if (ac == 4 && !is_sorted(stack_a))
 		sort_3(stack_a);
 	else if (ac == 5 && !is_sorted(stack_a))
-		sort_5(stack_a, stack_b);
+		sort_4(stack_a, stack_b);
 	else if (ac == 6  && !is_sorted(stack_a))
 		sort_5(stack_a, stack_b);
 }

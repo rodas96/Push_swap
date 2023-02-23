@@ -3,77 +3,85 @@
 /*                                                        :::      ::::::::   */
 /*   sort_5_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rodas <rodas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:53:29 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/22 20:39:14 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/02/23 17:48:45 by rodas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int ft_lstsize(t_stack *stack)
-{
-	int	count;
 
-	count = 0;
-	if (!stack)
-		return (0);
-	while (stack != NULL)
-	{
-		stack = stack->next;
-		count++;
-	}
-	return (count);
-}
-
-int	find_lowest(t_stack **stack)
+int	find_lowestindex(t_stack **stack)
 {
 	t_stack	*temp;
-	int	lowest;
-	int	i;
-
+	int		index;
+	int		lowest;
+	
+	index = 0;
 	temp = *stack;
 	lowest = (*stack)->content;
-	while (temp)
+	while (*stack)
 	{
-		if (temp->content < lowest)
+		if ((*stack)->content < lowest)
 		{
-			lowest = temp->content;
-			temp->lowest = lowest;
+			lowest = (*stack)->content;
 		}
-		i++;
-		temp = temp->next;
+		(*stack) = (*stack)->next;
 	}
-	return (i);
+	(*stack) = temp;
+	while ((*stack) && lowest != (*stack)->content)
+	{
+		(*stack) = (*stack)->next;
+		index++;
+	}
+	(*stack) = temp;
+	return (index);
+}
+
+void	sort_4(t_stack **stack_a, t_stack **stack_b)
+{
+	int	lowestindex;
+
+	lowestindex = find_lowestindex(stack_a);
+	if (lowestindex <= 1)
+	{
+		while (lowestindex--)
+			ra(stack_a);
+	}
+	else if (lowestindex <= 3)
+	{
+		while (lowestindex++ <= 3)
+			rra(stack_a);
+	}
+	if (!is_sorted(stack_a))
+	{
+		pb(stack_a, stack_b);
+		sort_3(stack_a);
+		pa(stack_a, stack_b);
+	}
 }
  
 void sort_5(t_stack **stack_a, t_stack **stack_b)
 {
-	if (ft_lstsize(*stack_a) == 5)
+	int lowestindex;
+
+	lowestindex = find_lowestindex(stack_a);
+	if (lowestindex <= 2)
 	{
-		while ((*stack_a)->content > (*stack_a)->lowest)
-		{
-			if (find_lowest(stack_a) <= 2)
-				ra(stack_a);
-			else if (find_lowest(stack_a) > 2)
-				rra(stack_a);
-		}
-		pb(stack_a, stack_b);
-		ft_printlst(*stack_b);
+		while (lowestindex--)
+			ra(stack_a);
 	}
-	if (ft_lstsize(*stack_a) == 4)
+	else if (lowestindex <= 4)
 	{
-		while ((*stack_a)->content > (*stack_a)->lowest)
-		{
-			if (find_lowest(stack_a) <= 1)
-				ra(stack_a);
-			else if (find_lowest(stack_a) > 1)
-				rra(stack_a);
-		}
-		pb(stack_a, stack_b);
-		ft_printlst(*stack_b);
+		while (lowestindex++ <= 4)
+			rra(stack_a);
 	}
-	sort_3(stack_a);
-	pa(stack_a, stack_b);
+	if (!is_sorted(stack_a))
+	{
+		pb(stack_a, stack_b);
+		sort_4(stack_a, stack_b);
+		pa(stack_a, stack_b);
+	}
 }
