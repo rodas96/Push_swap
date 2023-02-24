@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodas <rodas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:53:44 by rodas             #+#    #+#             */
-/*   Updated: 2023/02/23 17:48:57 by rodas            ###   ########.fr       */
+/*   Updated: 2023/02/24 19:36:50 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+double	media(t_stack *stack);
+void	b4average_gob(t_stack **stack_a, t_stack **stack_b);
+int	*find_neigh(t_stack *stack_a, t_stack *stack_b);
 //intput check, str to int 
 int			ft_guccinput(int ac, char **av);
 long int	ft_atol(char *av);
@@ -48,7 +51,10 @@ void rrr(t_stack **stack_a, t_stack **stack_b);
 void		ft_getargs(int ac, char **av, t_stack **stack);
 
 //find stuff
-int	find_lowestindex(t_stack **stack);
+int		find_lowestindex(t_stack **stack);
+void	smallest_go_tob(t_stack **stack_a, t_stack **stack_b);
+void	get_a_empty(t_stack **stack_a, t_stack **stack_b);
+void	get_b_empty(t_stack	**stack_a, t_stack **stack_b);
 
 //sorting
 int	is_sorted(t_stack **stack); //returns 1 if sorted Ou !is_sorted

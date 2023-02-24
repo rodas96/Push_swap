@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodas <rodas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:25:31 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/23 17:48:51 by rodas            ###   ########.fr       */
+/*   Updated: 2023/02/24 19:36:58 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(int ac, char **av)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b; 
+	t_stack	*stack_b; 
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -25,10 +25,19 @@ int main(int ac, char **av)
 		return (0);
 	}
 	ft_getargs(ac, av, &stack_a);
+	printf("stackA\n");
 	ft_printlst(stack_a);
+	printf("stackB\n");
 	ft_printlst(stack_b);
-	sort_everythingplz(ac, &stack_a, &stack_b);
+	//smallest_go_tob(&stack_a, &stack_b);
+	//sort_everythingplz(ac, &stack_a, &stack_b);
+	//get_a_empty(&stack_a, &stack_b);
+	//sort_5(&stack_a, &stack_b);
+	//get_b_empty(&stack_a, &stack_b);
+	printf("%ls", find_neigh(stack_a, stack_b));
+	printf("stackA\n");
 	ft_printlst(stack_a);
+	printf("stackB\n");
 	ft_printlst(stack_b);
 	return (0);
 }
