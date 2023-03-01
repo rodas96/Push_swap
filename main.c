@@ -6,7 +6,7 @@
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:25:31 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/24 19:36:58 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/03/01 19:21:36 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,19 @@ int main(int ac, char **av)
 	ft_printlst(stack_a);
 	printf("stackB\n");
 	ft_printlst(stack_b);
+	b4average_gob(&stack_a, &stack_b);
+	printf("stackA\n");
+	ft_printlst(stack_a);
+	printf("stackB\n");
+	ft_printlst(stack_b);
+	printf("%d\n", find_neigh(stack_a, stack_b)->content);
+	//find_neigh(stack_a, stack_b);
+	get_b_empty(&stack_a, &stack_b);
 	//smallest_go_tob(&stack_a, &stack_b);
 	//sort_everythingplz(ac, &stack_a, &stack_b);
 	//get_a_empty(&stack_a, &stack_b);
 	//sort_5(&stack_a, &stack_b);
 	//get_b_empty(&stack_a, &stack_b);
-	printf("%ls", find_neigh(stack_a, stack_b));
 	printf("stackA\n");
 	ft_printlst(stack_a);
 	printf("stackB\n");

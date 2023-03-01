@@ -6,7 +6,7 @@
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:46:01 by rmorais           #+#    #+#             */
-/*   Updated: 2023/02/24 17:30:02 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/03/01 19:02:34 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	smallest_go_tob(t_stack **stack_a,t_stack **stack_b)
 	pb(stack_a, stack_b);
 }
 
-void	get_a_empty(t_stack **stack_a, t_stack **stack_b)
+/* void	get_a_empty(t_stack **stack_a, t_stack **stack_b)
 {
 	while (ft_lstsize(*stack_a) > 3)
 	{
@@ -65,7 +65,7 @@ void	get_a_empty(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (!is_sorted(stack_a))
 		sort_3(stack_a);
-}
+} */
 
 void	get_b_empty(t_stack	**stack_a, t_stack **stack_b)
 {
