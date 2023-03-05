@@ -6,40 +6,14 @@
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:46:01 by rmorais           #+#    #+#             */
-/*   Updated: 2023/03/01 19:02:34 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/03/04 23:25:17 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_lowestindex(t_stack **stack)
-{
-	t_stack	*temp;
-	int		index;
-	int		lowest;
 
-	index = 0;
-	temp = *stack;
-	lowest = (*stack)->content;
-	while (*stack)
-	{
-		if ((*stack)->content < lowest)
-		{
-			lowest = (*stack)->content;
-		}
-		(*stack) = (*stack)->next;
-	}
-	(*stack) = temp;
-	while ((*stack) && lowest != (*stack)->content)
-	{
-		(*stack) = (*stack)->next;
-		index++;
-	}
-	(*stack) = temp;
-	return (index);
-}
-
-void	smallest_go_tob(t_stack **stack_a,t_stack **stack_b)
+/* void	smallest_go_tob(t_stack **stack_a,t_stack **stack_b)
 {
 	int	lowestindex;
 
@@ -49,7 +23,7 @@ void	smallest_go_tob(t_stack **stack_a,t_stack **stack_b)
 		while (lowestindex--)
 			ra(stack_a);
 	}
-	else/* if (lowestindex > ft_lstsize(*stack_a) / 2) */
+	else if (lowestindex > ft_lstsize(*stack_a) / 2)
 	{
 		while (lowestindex++ < ft_lstsize(*stack_a))
 			rra(stack_a);
@@ -57,7 +31,7 @@ void	smallest_go_tob(t_stack **stack_a,t_stack **stack_b)
 	pb(stack_a, stack_b);
 }
 
-/* void	get_a_empty(t_stack **stack_a, t_stack **stack_b)
+void	get_a_empty(t_stack **stack_a, t_stack **stack_b)
 {
 	while (ft_lstsize(*stack_a) > 3)
 	{
@@ -65,12 +39,5 @@ void	smallest_go_tob(t_stack **stack_a,t_stack **stack_b)
 	}
 	if (!is_sorted(stack_a))
 		sort_3(stack_a);
-} */
-
-void	get_b_empty(t_stack	**stack_a, t_stack **stack_b)
-{
-	while (*stack_b)
-	{
-		pa(stack_a, stack_b);
-	}
 }
+ */

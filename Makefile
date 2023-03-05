@@ -6,7 +6,7 @@
 #    By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 12:24:23 by rmorais           #+#    #+#              #
-#    Updated: 2023/02/24 16:05:10 by rmorais          ###   ########.fr        #
+#    Updated: 2023/03/04 23:25:59 by rmorais          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
-SRC = args errors_utils ft_atol listutils main push rotate swap reverserotate sort_3_args sort_5_args sorting algoutils algoutils1 \
+SRC = args errors_utils ft_atol listutils main push rotate swap reverserotate sort_3_args sort_5_args sorting algoutils1 move_to_a costslong \
 
 all: $(NAME)
 

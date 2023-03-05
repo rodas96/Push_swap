@@ -6,7 +6,7 @@
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:00:37 by rmorais           #+#    #+#             */
-/*   Updated: 2023/03/01 20:13:05 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/03/04 23:25:22 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,31 @@ void	b4average_gob(t_stack **stack_a, t_stack **stack_b)
 		else
 			ra(stack_a);
 	}
+}
+
+int	find_lowestindex(t_stack **stack)
+{
+	t_stack	*temp;
+	int		index;
+	int		lowest;
+
+	index = 0;
+	temp = *stack;
+	lowest = (*stack)->content;
+	while (*stack)
+	{
+		if ((*stack)->content < lowest)
+		{
+			lowest = (*stack)->content;
+		}
+		(*stack) = (*stack)->next;
+	}
+	(*stack) = temp;
+	while ((*stack) && lowest != (*stack)->content)
+	{
+		(*stack) = (*stack)->next;
+		index++;
+	}
+	(*stack) = temp;
+	return (index);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algolongutils.c                                    :+:      :+:    :+:   */
+/*   costslong.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmorais <rmorais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:23:19 by rmorais           #+#    #+#             */
-/*   Updated: 2023/03/01 20:26:29 by rmorais          ###   ########.fr       */
+/*   Updated: 2023/03/04 23:32:06 by rmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ double	absolutevalue(int a, int b)
 	}
 	return (absvalue);
 }
-
 
 t_stack	*find_neigh(t_stack *s_a, t_stack *s_b)
 {
@@ -50,28 +49,31 @@ t_stack	*find_neigh(t_stack *s_a, t_stack *s_b)
 // sei um element do b que arranja o vizinho perfeito  no a
 // meter os dois no topo para poder dar match
 
-
-int	ilike_tomoveit(t_stack **stack, t_stack *whereareubaby)
+// returns the number of moves needed to move the elemen to top/bottom
+// keeps the position of the element in the list
+int	find_element(t_stack **stack, t_stack *element)
 {
-	if (ft_lstsize(whereareubaby) > ft_lstsize(*stack) / 2)
+	if (ft_lstsize(element) > ft_lstsize(*stack) / 2)
 	{
-		whereareubaby->listmiddle = 0;
-		return (ft_lstsize(whereareubaby) - ft_lstsize(*stack) / 2);
+		element->listmiddle = 0;
+		return (ft_lstsize(element) - ft_lstsize(*stack) / 2);
 	}
 	else
 	{
-		whereareubaby->listmiddle = 1;
-		return (ft_lstsize(whereubaby));
+		element->listmiddle = 1;
+		return (ft_lstsize(element));
 	}
 }
 
-int	yolo_path(t_stack *s_a, t_stack *s_b, t_stack *element, t_stack *neigh)
+// if both elements are on top or bottom 
+// if elements are one on top and 1 at the bottom we have to add both costs
+int	pog_path(t_stack *s_a, t_stack *s_b, t_stack *element, t_stack *neigh)
 {
 	int	cost_a;
 	int cost_b;
 
-	cost_a = ilike_tomoveit(&s_a, neigh);
-	cost_b = ilike_tomoveit(&s_b, element);
+	cost_a = find_element(&s_a, neigh);
+	cost_b = find_element(&s_b, element);
 	if (s_a->listmiddle == top && s_b->listmiddle == top)
 	{
 		if (cost_a >= cost_b)
@@ -88,4 +90,30 @@ int	yolo_path(t_stack *s_a, t_stack *s_b, t_stack *element, t_stack *neigh)
 	}
 	else
 		return (cost_a + cost_b);
+}
+
+//neigh always stack a. elem stack b
+
+t_stack	*couple_cost_min(t_stack **stack_a, t_stack **stack_b)
+{
+	int			cost;
+	double		cost_min;
+	t_stack		*eleposition;
+	t_stack		*neighposition;
+	t_stack		*tempb;
+
+	tempb = *(stack_b);
+	cost_min = 10000000000000;
+	while (tempb)
+	{
+		neighposition = find_neigh(*stack_a, tempb);
+		cost = pog_path(*stack_a, *stack_b, tempb, neighposition);
+		if (cost < cost_min)
+		{
+			cost_min = cost;
+			eleposition = tempb;
+		}
+		tempb = tempb->next;
+	}
+	return (eleposition);
 }
