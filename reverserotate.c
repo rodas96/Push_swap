@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void ft_reversing(t_stack **stack)
+//penultimo
+static void	ft_reversing(t_stack **stack)
 {
 	t_stack	*temp;
 	t_stack	*lastelement;
@@ -22,25 +22,25 @@ static void ft_reversing(t_stack **stack)
 	*stack = lastelement;
 	(*stack)->next = temp;
 	while (temp->next != *stack)
-		temp = temp->next; //penultimo
+		temp = temp->next;
 	temp->next = NULL;
 }
 
-void rra(t_stack **stack_a)
+void	rra(t_stack **stack_a)
 {
 	ft_reversing(stack_a);
-	write(1,"rra\n",4);
+	write(1, "rra\n", 4);
 }
 
-void rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b)
 {
 	ft_reversing(stack_b);
-	write(1,"rrb\n",4);
+	write(1, "rrb\n", 4);
 }
 
-void rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_reversing(stack_a);
 	ft_reversing(stack_b);
-	write(1,"rrr\n",4);
+	write(1, "rrr\n", 4);
 }

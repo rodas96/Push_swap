@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-double	absolutevalue(int a, int b)
+double	absolutevalue(double a, double b)
 {
-	double absvalue;
+	double	absvalue;
 
 	if (a - b >= 0)
 	{
@@ -30,7 +30,7 @@ double	absolutevalue(int a, int b)
 t_stack	*find_neigh(t_stack *s_a, t_stack *s_b)
 {
 	t_stack	*neighposition;
-	double diff;
+	double	diff;
 
 	diff = 100000000000000;
 	while (s_a)
@@ -45,43 +45,42 @@ t_stack	*find_neigh(t_stack *s_a, t_stack *s_b)
 	}
 	return (neighposition);
 }
-
 // sei um element do b que arranja o vizinho perfeito  no a
-// meter os dois no topo para poder dar match
+// meter os dois no TOPo para poder dar match
 
-// returns the number of moves needed to move the elemen to top/bottom
+// returns the number of moves needed to move the elemen to TOP/BOTTOM
 // keeps the position of the element in the list
 int	find_element(t_stack **stack, t_stack *element)
 {
 	if (ft_lstsize(element) >= ft_lstsize(*stack) / 2)
 	{
-		element->listmiddle = top;
+		element->listmiddle = TOP;
 		return (ft_lstsize(*stack) - ft_lstsize(element));
 	}
 	else
 	{
-		element->listmiddle = bottom;
+		element->listmiddle = BOTTOM;
 		return (ft_lstsize(element));
 	}
 }
 
-// if both elements are on top or bottom 
-// if elements are one on top and 1 at the bottom we have to add both costs
+// if both elements are on TOP or BOTTOM 
+// if elements are one on TOP and 1 at the BOTTOM we have to add both costs
 int	pog_path(t_stack *s_a, t_stack *s_b, t_stack *element, t_stack *neigh)
 {
 	int	cost_a;
-	int cost_b;
+	int	cost_b;
 
 	cost_a = find_element(&s_a, neigh);
 	cost_b = find_element(&s_b, element);
-	if (neigh->listmiddle == top && element->listmiddle == top)
+	if (neigh->listmiddle == TOP && element->listmiddle == TOP)
 	{
 		if (cost_a >= cost_b)
 			return (cost_a);
 		else
 			return (cost_b);
 	}
-	if (neigh->listmiddle == bottom && element->listmiddle == bottom)
+	if (neigh->listmiddle == BOTTOM && element->listmiddle == BOTTOM)
 	{
 		if (cost_a >= cost_b)
 			return (cost_a);
@@ -93,7 +92,6 @@ int	pog_path(t_stack *s_a, t_stack *s_b, t_stack *element, t_stack *neigh)
 }
 
 //neigh always stack a. elem stack b
-
 t_stack	*couple_cost_min(t_stack **stack_a, t_stack **stack_b)
 {
 	int			cost;

@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 /* void	smallest_go_tob(t_stack **stack_a,t_stack **stack_b)
 {
 	int	lowestindex;
@@ -30,7 +29,6 @@
 	}
 	pb(stack_a, stack_b);
 }
-
 void	get_a_empty(t_stack **stack_a, t_stack **stack_b)
 {
 	while (ft_lstsize(*stack_a) > 3)
@@ -41,3 +39,16 @@ void	get_a_empty(t_stack **stack_a, t_stack **stack_b)
 		sort_3(stack_a);
 }
  */
+/* void	ft_printlst(t_stack *lst)
+{
+	t_stack	*temp;
+
+	temp = lst;
+	while (lst != NULL)
+	{
+		printf("[%d] ", lst->content);
+		lst = lst->next;
+	}
+	printf("\n");
+	lst = temp;
+} */

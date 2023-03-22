@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-long int ft_atol(char *av)
+long int	ft_atol(char *av)
 {
-	int i;
+	int			i;
 	long int	result;
 	long int	sign;
 
-    i = 0;
-    result = 0;
-    sign = 1;
+	i = 0;
+	result = 0;
+	sign = 1;
 	if (av[i] == '+')
-        i++;
+		i++;
 	else if (av[i] == '-')
 	{
-        sign *= -1;
+		sign *= -1;
 		i++;
 	}
 	while (av[i] != '\0' && av[i] >= '0' && av[i] <= '9')

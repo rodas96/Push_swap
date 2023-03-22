@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-void ft_getargs(int ac, char **av, t_stack **stack)
+void	ft_getargs(int ac, char **av, t_stack **stack)
 {
-	int i;
+	int	i;
 
-    i = 1;
+	i = 1;
 	while (i < ac)
 	{
 		ft_addback(stack, ft_lstnew(ft_atol(av[i])));

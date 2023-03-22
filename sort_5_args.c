@@ -35,9 +35,9 @@ void	sort_4(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void sort_5(t_stack **stack_a, t_stack **stack_b)
+void	sort_5(t_stack **stack_a, t_stack **stack_b)
 {
-	int lowestindex;
+	int	lowestindex;
 
 	lowestindex = find_lowestindex(stack_a);
 	if (lowestindex <= 2)

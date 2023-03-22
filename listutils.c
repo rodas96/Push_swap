@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int ft_lstsize(t_stack *stack)
+int	ft_lstsize(t_stack *stack)
 {
 	int	count;
 
@@ -26,7 +26,6 @@ int ft_lstsize(t_stack *stack)
 	}
 	return (count);
 }
-
 
 t_stack	*ft_lstnew(int content)
 {
@@ -62,43 +61,15 @@ void	ft_addback(t_stack **lst, t_stack *new)
 	lastnode->next = new;
 }
 
-void ft_printlst(t_stack *lst)
-{
-	t_stack *temp;
-
-	temp = lst;
-	while (lst != NULL)
-	{
-		printf("[%d] ", lst->content);
-		lst = lst->next;
-	}
-	printf("\n");
-	lst = temp;
-}
-
 void	ft_listfree(t_stack **lst)
 {
 	t_stack	*temp;
-	
+
 	while (*lst)
 	{
 		temp = (*lst)->next;
 		free((*lst));
 		(*lst) = temp;
 	}
-	(*lst) = NULL; 
+	(*lst) = NULL;
 }
-/* 
-int main()
-{
-	t_stack *a;
-	t_stack	*b;
-
-	a = malloc(sizeof(t_stack));
-	b = malloc(sizeof(t_stack));
-	a = ft_lstnew(124);
-	b = ft_lstnew(567);
-	printf("%d\n", a->content);
-	a->next = b;
-	printf("%d", a->next->content);	
-} */

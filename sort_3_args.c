@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-static void do_sa_rra(t_stack **stack_a)
+static void	do_sa_rra(t_stack **stack_a)
 {
 	sa(stack_a);
 	rra(stack_a);
 }
 
-static void do_sa_ra(t_stack **stack_a)
+static void	do_sa_ra(t_stack **stack_a)
 {
 	sa(stack_a);
 	ra(stack_a);
@@ -26,8 +26,8 @@ static void do_sa_ra(t_stack **stack_a)
 
 void	sort_3(t_stack **stack_a)
 {	
-	int first;
-	int second;
+	int	first;
+	int	second;
 	int	third;
 
 	first = (*stack_a)->content;

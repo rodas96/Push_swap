@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-static int is_number(char *str)
+static int	is_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -44,8 +44,8 @@ static int	ft_isdigit(int ac, char **av)
 
 static int	ft_dupe(int ac, char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < ac - 1)
@@ -78,7 +78,7 @@ static int	ft_limits(int ac, char **av)
 
 int	ft_guccinput(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < ac)

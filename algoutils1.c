@@ -15,7 +15,7 @@
 double	media(t_stack *stack)
 {
 	double	soma;
-	int count;
+	int		count;
 
 	soma = 0;
 	count = 0;
