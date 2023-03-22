@@ -53,14 +53,14 @@ t_stack	*find_neigh(t_stack *s_a, t_stack *s_b)
 // keeps the position of the element in the list
 int	find_element(t_stack **stack, t_stack *element)
 {
-	if (ft_lstsize(element) > ft_lstsize(*stack) / 2)
+	if (ft_lstsize(element) >= ft_lstsize(*stack) / 2)
 	{
-		element->listmiddle = 0;
-		return (ft_lstsize(element) - ft_lstsize(*stack) / 2);
+		element->listmiddle = top;
+		return (ft_lstsize(*stack) - ft_lstsize(element));
 	}
 	else
 	{
-		element->listmiddle = 1;
+		element->listmiddle = bottom;
 		return (ft_lstsize(element));
 	}
 }
@@ -74,14 +74,14 @@ int	pog_path(t_stack *s_a, t_stack *s_b, t_stack *element, t_stack *neigh)
 
 	cost_a = find_element(&s_a, neigh);
 	cost_b = find_element(&s_b, element);
-	if (s_a->listmiddle == top && s_b->listmiddle == top)
+	if (neigh->listmiddle == top && element->listmiddle == top)
 	{
 		if (cost_a >= cost_b)
 			return (cost_a);
 		else
 			return (cost_b);
 	}
-	if (s_a->listmiddle == bottom && s_b->listmiddle == bottom)
+	if (neigh->listmiddle == bottom && element->listmiddle == bottom)
 	{
 		if (cost_a >= cost_b)
 			return (cost_a);
@@ -102,7 +102,8 @@ t_stack	*couple_cost_min(t_stack **stack_a, t_stack **stack_b)
 	t_stack		*neighposition;
 	t_stack		*tempb;
 
-	tempb = *(stack_b);
+	eleposition = *stack_b;
+	tempb = *stack_b;
 	cost_min = 10000000000000;
 	while (tempb)
 	{

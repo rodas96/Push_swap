@@ -34,6 +34,9 @@ void		b4average_gob(t_stack **stack_a, t_stack **stack_b);
 double		absolutevalue(int a, int b);
 int			find_lowestindex(t_stack **stack);
 
+// after puting send b logic do it until b null
+void	send_everything_toA(t_stack **stack_a, t_stack **stack_b);
+
 //finds best element in stacka with be stores his pos
 t_stack		*find_neigh(t_stack *s_a, t_stack *s_b);
 // returns the number of moves depending top/bot
@@ -92,5 +95,6 @@ t_stack		*ft_lstlast(t_stack *lst);
 void		ft_addback(t_stack **lst, t_stack *new);
 void		ft_printlst(t_stack *lst);
 int 		ft_lstsize(t_stack *stack);
+void		ft_listfree(t_stack **lst);
 
 #endif

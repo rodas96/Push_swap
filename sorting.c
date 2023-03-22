@@ -41,4 +41,22 @@ void	sort_everythingplz(int ac, t_stack **stack_a, t_stack **stack_b)
 		sort_4(stack_a, stack_b);
 	else if (ac == 6  && !is_sorted(stack_a))
 		sort_5(stack_a, stack_b);
+	else if (ac > 6 && !is_sorted(stack_a))
+	{
+		b4average_gob(stack_a, stack_b);
+		printf("A\n");
+		ft_printlst(*stack_a);
+		printf("B\n");
+		ft_printlst(*stack_b);
+		if (!is_sorted(stack_a))
+			sort_3(stack_a);
+		ft_printlst(*stack_a);
+		send_everything_toA(stack_a, stack_b);
+		printf("organize\n");
+		//if (!is_sorted(stack_a))
+			//reorganize_stack(stack_a);
+		ft_printlst(*stack_a);
+		printf("organized\n");
+		ft_printlst(*stack_a);
+	}
 }

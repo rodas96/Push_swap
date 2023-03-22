@@ -75,6 +75,19 @@ void ft_printlst(t_stack *lst)
 	printf("\n");
 	lst = temp;
 }
+
+void	ft_listfree(t_stack **lst)
+{
+	t_stack	*temp;
+	
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		free((*lst));
+		(*lst) = temp;
+	}
+	(*lst) = NULL; 
+}
 /* 
 int main()
 {

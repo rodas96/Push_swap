@@ -13,7 +13,7 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
 RM = rm -f
 
 SRC = args errors_utils ft_atol listutils main push rotate swap reverserotate sort_3_args sort_5_args sorting algoutils1 move_to_a costslong \

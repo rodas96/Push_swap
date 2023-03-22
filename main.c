@@ -28,22 +28,14 @@ int main(int ac, char **av)
 	printf("stackA\n");
 	ft_printlst(stack_a);
 	printf("stackB\n");
-	ft_printlst(stack_b);
-	b4average_gob(&stack_a, &stack_b);
-	sort_3(&stack_a);
+	sort_everythingplz(ac, &stack_a, &stack_b);
+	if (!is_sorted(&stack_a))
+		reorganize_stack(&stack_a);
 	printf("stackA\n");
 	ft_printlst(stack_a);
 	printf("stackB\n");
 	ft_printlst(stack_b);
-	get_b_empty(&stack_a, &stack_b);
-	//smallest_go_tob(&stack_a, &stack_b);
-	//sort_everythingplz(ac, &stack_a, &stack_b);
-	//get_a_empty(&stack_a, &stack_b);
-	//sort_5(&stack_a, &stack_b);
-	//get_b_empty(&stack_a, &stack_b);
-	printf("stackA\n");
-	ft_printlst(stack_a);
-	printf("stackB\n");
-	ft_printlst(stack_b);
+	ft_listfree(&stack_a);
+	ft_listfree(&stack_b);
 	return (0);
 }
